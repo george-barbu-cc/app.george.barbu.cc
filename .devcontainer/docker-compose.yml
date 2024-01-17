@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  app-dev:
+    build:
+      context: "."
+    environment:
+      NODE_ENV: development
+    tty: true
+    network_mode: "host"
+    ports:
+      - 19000:19000
+      - 19001:19001
+    working_dir: "/workspace/App"
+    volumes:
+      - ./../:/workspace/App
+      - vs-server:/root/.vscode-server
+    container_name: app_george_barbu_cc_nodejs
+
+volumes:
+  vs-server: {}
